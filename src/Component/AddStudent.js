@@ -3,23 +3,56 @@ import { Container } from 'react-bootstrap'
 import Button from 'react-bootstrap/Button'
 import Form from 'react-bootstrap/Form'
 import axios from 'axios'
+import { useEffect } from 'react'
+import { useParams } from 'react-router-dom'
 
 const AddStudent = () => {
-    const handleSubmit = (e) => {
-        e.preventDefault();
-        axios
-        .post("http://localhost:8080/student", {
-            id: id,
-            name: name,
-            address: address
-          })
-          .then((response) => {
-            console.log(response)
-          });
+  
+  const { studentId } = useParams(); 
+  
+  const [id, setId] = useState();
+  const [name, setName] = useState();
+  const [address, setAddress] = useState();
+
+  useEffect(()=>{
+    if(studentId){
+      console.log(studentId)
+      axios.get(`http://localhost:8080/student/${studentId}`)
+      .then(response => {
+        setAddress(response.data.address)
+        setName(response.data.name)
+        setId(response.data.id)
+      })
     }
-    const [id, setId] = useState();
-    const [name, setName] = useState();
-    const [address, setAddress] = useState();
+  }, [])
+
+  const handleSubmit = (e) => {
+    if(studentId){
+      e.preventDefault();
+      axios.put(`http://localhost:8080/student/${id}`, {
+        id: id,
+        name: name,
+        address: address
+      })
+      .then((response) => {
+        console.log(response);
+      })
+    } else {
+      e.preventDefault();
+      axios
+      .post("http://localhost:8080/student", {
+        id: id,
+        name: name,
+        address: address
+      })
+      .then((response) => {
+        console.log(response)
+      });
+    }
+  }
+      
+    
+
 
     const changeValue = (e) => {
         if(e.target.name === "id"){
