@@ -24,16 +24,24 @@ const StudentList = () => {
       // setStudents(response.data)
     })
   }
-
+  const sortData = (temp) => {
+    if(students[0][temp] > students[1][temp]){
+      const data1 = [...students].sort((a, b) => (a[temp] < b[temp] ? -1 : 1));
+      setStudents(data1)
+    } else {
+      const data1 = [...students].sort((a, b) => (a[temp] > b[temp] ? -1 : 1));
+      setStudents(data1)
+    }
+  }
 
   return (
     <Container className='mt-2'>
       <Table striped bordered hover>
       <thead>
         <tr>
-          <th>Name</th>
-          <th>Email</th>
-          <th>Address</th>
+          <th>Id<i class="fa-solid fa-sort ms-1" onClick={() => {sortData("id")}}></i></th>
+          <th>Name<i class="fa-solid fa-sort ms-1" onClick={() => {sortData("name")}}></i></th>
+          <th>Address<i class="fa-solid fa-sort ms-1" onClick={() => {sortData("address")}}></i></th>
           <th>Update</th>
           <th>Edit</th>
         </tr>
