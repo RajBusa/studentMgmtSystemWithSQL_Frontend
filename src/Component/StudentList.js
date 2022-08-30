@@ -39,7 +39,7 @@ const StudentList = () => {
       <Table striped bordered hover>
       <thead>
         <tr>
-          <th>Id<i class="fa-solid fa-sort ms-1" onClick={() => {sortData("id")}}></i></th>
+          <th>Id<i class="fa-solid fa-arrow-down-1-9 ms-1" onClick={() => {sortData("id")}}></i></th>
           <th>Name<i class="fa-solid fa-sort ms-1" onClick={() => {sortData("name")}}></i></th>
           <th>Address<i class="fa-solid fa-sort ms-1" onClick={() => {sortData("address")}}></i></th>
           <th>Update</th>
