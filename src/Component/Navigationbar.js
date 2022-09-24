@@ -3,6 +3,7 @@ import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import { Link } from "react-router-dom";
 
+
 const Navigationbar = () => {
   return (
     <div>
@@ -14,6 +15,8 @@ const Navigationbar = () => {
             <Nav.Link><Link className="nav-link" to="/">Home</Link></Nav.Link>
             <Nav.Link><Link className="nav-link" to="/adddata">AddData</Link></Nav.Link>
             <Nav.Link><Link className="nav-link" to="/studentlist">GetData</Link></Nav.Link>
+            <Nav.Link><Link className="nav-link" to="/login">Login</Link></Nav.Link>
+            <Nav.Link><Link className="nav-link" to="/signup">Signup</Link></Nav.Link>
           </Nav>
         </Navbar.Collapse>
       </Navbar>

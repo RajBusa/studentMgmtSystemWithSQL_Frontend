@@ -12,6 +12,8 @@ import {
 } from "react-router-dom";
 import { Alert } from 'react-bootstrap';
 import { useState } from 'react';
+import Login from './Component/Login';
+import Signup from './Component/Signup';
 
 function App() {
 
@@ -26,6 +28,8 @@ function App() {
           <Route path='/adddata' element={<AddStudent />}/>
           <Route path='/studentlist' element={<StudentList />}/>
           <Route path='/student/:studentId' element={<AddStudent />}/>
+          <Route path='/login' element={<Login />}/>
+          <Route path='/signup' element={<Signup />}/>
         </Routes>
       </BrowserRouter>
     </div>

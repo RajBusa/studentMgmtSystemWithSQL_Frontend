@@ -47,6 +47,9 @@ const AddStudent = () => {
       })
       .then((response) => {
         console.log(response)
+        setAddress("")
+        setName("")
+        setId("")
       });
     }
   }
